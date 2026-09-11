@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rameez Jalal — Links & Portfolio</title>
+<meta name="description" content="Rameez Jalal's personal links, portfolio, social profiles, and marketing work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ============================================
+     DESIGN SYSTEM & TOKENS
+     ============================================ */
+  :root {
+    --bg-page: #f2f4f8;
+    --card-bg: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --text-muted: #94a3b8;
+    --accent-red: #ff3358;
+    --accent-red-hover: #f4254b;
+    --accent-red-glow: rgba(255, 51, 88, 0.38);
+    --border-subtle: #e9edf4;
+    --border-card: #f1f4f9;
+    --shadow-soft: 0 12px 36px rgba(15, 23, 42, 0.05);
+    --shadow-card: 0 4px 20px rgba(15, 23, 42, 0.04);
+    --radius-pill: 9999px;
+    --radius-card: 20px;
+    --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    min-height: 100vh;
+    background: var(--bg-page);
+    background-image: 
+      radial-gradient(circle at 15% 12%, rgba(216, 226, 255, 0.75) 0%, transparent 45%),
+      radial-gradient(circle at 85% 18%, rgba(255, 226, 236, 0.65) 0%, transparent 42%),
+      radial-gradient(circle at 50% 55%, rgba(235, 243, 255, 0.6) 0%, transparent 50%),
+      radial-gradient(circle at 80% 85%, rgba(230, 238, 255, 0.5) 0%, transparent 45%);
+    background-attachment: fixed;
+    font-family: var(--font-family);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    padding: 24px 16px 48px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Main Container */
+  .container {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  /* Profile Avatar */
+  .avatar-wrap {
+    position: relative;
+    width: 112px;
+    height: 112px;
+    margin: 16px 0 18px;
+    animation: fadeInDown 0.6s ease-out;
+  }
+
+  .avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 52% 26%;
+    display: block;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+    border: 3px solid #ffffff;
+    background: #e2e8f0;
+  }
+
+  /* Header Typography */
+  .name {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.015em;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+
+  .handle {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--accent-red);
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .bio {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    text-align: center;
+    max-width: 330px;
+    margin-bottom: 22px;
+    padding: 0 8px;
+  }
+
+  /* Social Icons Row */
+  .social-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+    max-width: 380px;
+  }
+
+  .social-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #ffffff;
+    transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.22s ease;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .social-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    transition: transform 0.2s ease;
+  }
+
+  .social-btn:hover, .social-btn:focus-visible {
+    transform: translateY(-3px) scale(1.08);
+  }
+
+  .social-btn:active {
+    transform: translateY(0) scale(0.96);
+  }
+
+  /* Social Platform Colors & Ambient Shadows */
+  .btn-facebook {
+    background: #1877f2;
+    box-shadow: 0 8px 18px rgba(24, 119, 242, 0.38);
+  }
+  .btn-facebook:hover {
+    box-shadow: 0 12px 24px rgba(24, 119, 242, 0.52);
+  }
+
+  .btn-x {
+    background: #0f1419;
+    box-shadow: 0 8px 18px rgba(15, 20, 25, 0.35);
+  }
+  .btn-x:hover {
+    box-shadow: 0 12px 24px rgba(15, 20, 25, 0.48);
+  }
+
+  .btn-instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+    box-shadow: 0 8px 18px rgba(214, 36, 159, 0.38);
+  }
+  .btn-instagram:hover {
+    box-shadow: 0 12px 24px rgba(214, 36, 159, 0.52);
+  }
+
+  .btn-youtube {
+    background: #ff0000;
+    box-shadow: 0 8px 18px rgba(255, 0, 0, 0.38);
+  }
+  .btn-youtube:hover {
+    box-shadow: 0 12px 24px rgba(255, 0, 0, 0.52);
+  }
+
+  .btn-linkedin {
+    background: #0a66c2;
+    box-shadow: 0 8px 18px rgba(10, 102, 194, 0.38);
+  }
+  .btn-linkedin:hover {
+    box-shadow: 0 12px 24px rgba(10, 102, 194, 0.52);
+  }
+
+  .btn-behance {
+    background: #0057ff;
+    box-shadow: 0 8px 18px rgba(0, 87, 255, 0.38);
+  }
+  .btn-behance:hover {
+    box-shadow: 0 12px 24px rgba(0, 87, 255, 0.52);
+  }
+
+  .btn-threads {
+    background: #111111;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.32);
+  }
+  .btn-threads:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.48);
+  }
+
+  /* Primary CTA Pill Button */
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 36px;
+    background: linear-gradient(135deg, #ff365c 0%, #ff234a 100%);
+    color: #ffffff;
+    font-size: 14.5px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 10px 24px var(--accent-red-glow);
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease, background 0.2s ease;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    letter-spacing: -0.01em;
+  }
+
+  .cta-btn:hover, .cta-btn:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(255, 41, 80, 0.46);
+    background: linear-gradient(135deg, #ff4365 0%, #f41840 100%);
+  }
+
+  .cta-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 16px var(--accent-red-glow);
+  }
+
+  /* Divider */
+  .divider {
+    width: 90%;
+    height: 1px;
+    background: #edf0f6;
+    margin: 28px auto 24px auto;
+  }
+
+  /* Section Title */
+  .section-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.015em;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* Selected Work Showcase Cards */
+  .work-grid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .work-card {
+    display: flex;
+    align-items: center;
+    background: var(--card-bg);
+    border: 1px solid var(--border-card);
+    border-radius: 18px;
+    padding: 13px 16px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .work-card:hover, .work-card:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07);
+    border-color: #dce3ee;
+  }
+
+  .work-thumb {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .thumb-yt { background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%); }
+  .thumb-be { background: linear-gradient(135deg, #0057ff 0%, #0037a8 100%); }
+  .thumb-li { background: linear-gradient(135deg, #0a66c2 0%, #004182 100%); }
+  .thumb-th { background: linear-gradient(135deg, #262626 0%, #000000 100%); }
+
+  .work-info {
+    flex: 1;
+    margin-left: 14px;
+  }
+
+  .work-title {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+  }
+
+  .work-desc {
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+
+  .work-arrow {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    flex-shrink: 0;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+
+  .work-card:hover .work-arrow {
+    background: #ffeff3;
+    color: var(--accent-red);
+    transform: translateX(2px);
+  }
+
+  .work-arrow svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Visual Project Gallery Tiles */
+  .gallery-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .gallery-item {
+    aspect-ratio: 1.15;
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+    background: #ffffff;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-card);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 14px;
+    text-decoration: none;
+    color: #ffffff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .gallery-item:hover, .gallery-item:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+  }
+
+  .gallery-bg-1 {
+    background: linear-gradient(135deg, rgba(74, 85, 104, 0.9) 0%, rgba(26, 32, 44, 0.95) 100%),
+                radial-gradient(circle at top left, #6366f1 0%, transparent 60%);
+  }
+
+  .gallery-bg-2 {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.88) 0%, rgba(168, 85, 247, 0.95) 100%),
+                radial-gradient(circle at bottom right, #f43f5e 0%, transparent 70%);
+  }
+
+  .gallery-tag {
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    opacity: 0.85;
+    margin-bottom: 3px;
+  }
+
+  .gallery-name {
+    font-size: 13.5px;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    padding: 16px 0 10px;
+  }
+
+  /* Keyframe animations */
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  
+  <!-- Profile Avatar -->
+  <div class="avatar-wrap">
+    <img 
+      src="./avatar.png?v=2" 
+      alt="Rameez Jalal Profile Picture" 
+      class="avatar-img"
+      id="profile-avatar"
+      loading="eager"
+    >
+  </div>
+
+  <!-- User Details -->
+  <h1 class="name" id="profile-name">Rameez Jalal</h1>
+  <div class="handle">@marketingwithrameez</div>
+  <p class="bio" id="profile-bio">
+    Digital marketing specialist & creator. Helping brands grow through creative storytelling, campaign strategy, and content marketing.
+  </p>
+
+  <!-- Social Media Circular Buttons -->
+  <div class="social-row" aria-label="Social Profiles">
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/profile.php?id=61594163703055" target="_blank" rel="noopener noreferrer" class="social-btn btn-facebook" aria-label="Facebook" title="Facebook">
+      <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7v-3h3V9.5C10 6.46 11.82 5 14.44 5c1.26 0 2.56.22 2.56.22v2.81h-1.44c-1.5 0-1.97.94-1.97 1.9V12h3.17l-.51 3h-2.66v6.8c4.56-.93 8-4.96 8-9.8z"/></svg>
+    </a>
+
+    <!-- X / Twitter -->
+    <a href="https://x.com/rameez_jalal_" target="_blank" rel="noopener noreferrer" class="social-btn btn-x" aria-label="X (Twitter)" title="X (Twitter)">
+      <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/r.am.eez/" target="_blank" rel="noopener noreferrer" class="social-btn btn-instagram" aria-label="Instagram" title="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
+
+    <!-- Threads -->
+    <a href="https://www.threads.net/@r.am.eez" target="_blank" rel="noopener noreferrer" class="social-btn btn-threads" aria-label="Threads" title="Threads">
+      <svg viewBox="0 0 24 24"><path d="M12.001 2c-5.523 0-10 4.477-10 10 0 5.522 4.477 10 10 10s10-4.478 10-10c0-5.523-4.477-10-10-10zm4.27 13.068c-.378.895-1.026 1.623-1.928 2.164-1.01.606-2.21.91-3.567.91-1.393 0-2.613-.314-3.626-.932-.977-.597-1.699-1.445-2.146-2.52-.452-1.088-.679-2.39-.676-3.87.003-1.48.236-2.784.693-3.874.453-1.08 1.183-1.928 2.17-2.52 1.019-.611 2.253-.921 3.668-.921 1.42 0 2.658.312 3.679.929.988.597 1.714 1.448 2.158 2.531.396.966.614 2.102.65 3.376h-2.152c-.053-.943-.223-1.695-.506-2.235-.296-.565-.724-.993-1.272-1.273-.564-.287-1.282-.434-2.138-.434-.848 0-1.572.15-2.152.447-.564.29-.98.718-1.237 1.27-.265.57-.404 1.378-.415 2.404-.012 1.05.118 1.884.385 2.476.262.582.684 1.027 1.255 1.321.58.3 1.306.452 2.16.452.923 0 1.687-.156 2.271-.464.53-.28.92-.68 1.157-1.187l1.626 1.455z"/></svg>
+    </a>
+
+    <!-- YouTube -->
+    <a href="https://www.youtube.com/@marketingwithrameez" target="_blank" rel="noopener noreferrer" class="social-btn btn-youtube" aria-label="YouTube" title="YouTube">
+      <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/rameez-jalal/" target="_blank" rel="noopener noreferrer" class="social-btn btn-linkedin" aria-label="LinkedIn" title="LinkedIn">
+      <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+    </a>
+
+    <!-- Behance -->
+    <a href="https://www.behance.net/rameezjalal" target="_blank" rel="noopener noreferrer" class="social-btn btn-behance" aria-label="Behance" title="Behance">
+      <svg viewBox="0 0 24 24"><path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-4.882 3-3.655 0-5.748-2.548-5.748-6.19 0-3.666 2.37-6.274 5.748-6.274 3.754 0 5.485 2.766 5.163 6.643H15.93c.123 1.942 1.348 2.793 2.868 2.793 1.18 0 2.062-.574 2.45-1.472l2.478 1.5zm-5.75-5.26h4.086c-.156-1.55-1.04-2.222-2.062-2.222-1.22 0-1.92.793-2.024 2.222zM8.88 12.164c1.19-.607 1.92-1.63 1.92-2.973 0-2.888-2.222-4.191-5.334-4.191H0V20h5.714c3.483 0 5.864-1.604 5.864-4.577 0-1.583-.938-2.73-2.698-3.259zM2.857 7.143h2.619c1.643 0 2.667.656 2.667 1.91 0 1.282-1.024 1.967-2.667 1.967H2.857V7.143zm2.857 10.714H2.857v-4.5h2.857c1.881 0 3.024.819 3.024 2.233 0 1.442-1.143 2.267-3.024 2.267z"/></svg>
+    </a>
+  </div>
+
+  <!-- Primary Call to Action Button -->
+  <a href="https://www.linkedin.com/in/rameez-jalal/" target="_blank" rel="noopener noreferrer" class="cta-btn" id="cta-contact">
+    Get in touch
+  </a>
+
+  <!-- Subtle Divider -->
+  <div class="divider" role="separator"></div>
+
+  <!-- Selected Work Section -->
+  <h2 class="section-title">Selected work</h2>
+
+  <!-- Project Cards linking to platforms -->
+  <div class="work-grid">
+    <a href="https://www.behance.net/rameezjalal" class="work-card" target="_blank" rel="noopener noreferrer">
+      <div class="work-thumb thumb-be">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-4.882 3-3.655 0-5.748-2.548-5.748-6.19 0-3.666 2.37-6.274 5.748-6.274 3.754 0 5.485 2.766 5.163 6.643H15.93c.123 1.942 1.348 2.793 2.868 2.793 1.18 0 2.062-.574 2.45-1.472l2.478 1.5zm-5.75-5.26h4.086c-.156-1.55-1.04-2.222-2.062-2.222-1.22 0-1.92.793-2.024 2.222zM8.88 12.164c1.19-.607 1.92-1.63 1.92-2.973 0-2.888-2.222-4.191-5.334-4.191H0V20h5.714c3.483 0 5.864-1.604 5.864-4.577 0-1.583-.938-2.73-2.698-3.259zM2.857 7.143h2.619c1.643 0 2.667.656 2.667 1.91 0 1.282-1.024 1.967-2.667 1.967H2.857V7.143zm2.857 10.714H2.857v-4.5h2.857c1.881 0 3.024.819 3.024 2.233 0 1.442-1.143 2.267-3.024 2.267z"/></svg>
+      </div>
+      <div class="work-info">
+        <div class="work-title">Behance Portfolio</div>
+        <div class="work-desc">Branding, campaigns & creative showcases</div>
+      </div>
+      <div class="work-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+
+    <a href="https://www.youtube.com/@marketingwithrameez" class="work-card" target="_blank" rel="noopener noreferrer">
+      <div class="work-thumb thumb-yt">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </div>
+      <div class="work-info">
+        <div class="work-title">Marketing With Rameez</div>
+        <div class="work-desc">Marketing tutorials, strategies & breakdowns</div>
+      </div>
+      <div class="work-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+
+    <a href="https://www.linkedin.com/in/rameez-jalal/" class="work-card" target="_blank" rel="noopener noreferrer">
+      <div class="work-thumb thumb-li">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+      </div>
+      <div class="work-info">
+        <div class="work-title">LinkedIn Articles & Experience</div>
+        <div class="work-desc">Industry thoughts & professional milestones</div>
+      </div>
+      <div class="work-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+
+    <a href="https://www.threads.net/@r.am.eez" class="work-card" target="_blank" rel="noopener noreferrer">
+      <div class="work-thumb thumb-th">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.001 2c-5.523 0-10 4.477-10 10 0 5.522 4.477 10 10 10s10-4.478 10-10c0-5.523-4.477-10-10-10zm4.27 13.068c-.378.895-1.026 1.623-1.928 2.164-1.01.606-2.21.91-3.567.91-1.393 0-2.613-.314-3.626-.932-.977-.597-1.699-1.445-2.146-2.52-.452-1.088-.679-2.39-.676-3.87.003-1.48.236-2.784.693-3.874.453-1.08 1.183-1.928 2.17-2.52 1.019-.611 2.253-.921 3.668-.921 1.42 0 2.658.312 3.679.929.988.597 1.714 1.448 2.158 2.531.396.966.614 2.102.65 3.376h-2.152c-.053-.943-.223-1.695-.506-2.235-.296-.565-.724-.993-1.272-1.273-.564-.287-1.282-.434-2.138-.434-.848 0-1.572.15-2.152.447-.564.29-.98.718-1.237 1.27-.265.57-.404 1.378-.415 2.404-.012 1.05.118 1.884.385 2.476.262.582.684 1.027 1.255 1.321.58.3 1.306.452 2.16.452.923 0 1.687-.156 2.271-.464.53-.28.92-.68 1.157-1.187l1.626 1.455z"/></svg>
+      </div>
+      <div class="work-info">
+        <div class="work-title">Threads Updates</div>
+        <div class="work-desc">Daily bite-sized marketing tips & discussions</div>
+      </div>
+      <div class="work-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+  </div>
+
+  <footer>
+    <p>© <span id="year"></span> Rameez Jalal · All Rights Reserved</p>
+  </footer>
+
+</div>
+
+<script>
+  // Auto set current year in footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
